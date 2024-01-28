@@ -1,10 +1,12 @@
 let inputText = document.getElementById("writeText");
 const readButton = document.getElementById("readButton");
 const readLog = document.getElementById("readLog");
-
+console.log(0);
 readButton.addEventListener("click", async () => {
+  console.log(1);
   readLog.textContent = await "clicked read button";
   try {
+    console.log(2);
     const reader = new NDEFReader();
     await reader.scan();
     readLog.textContent = "scan started!!!!";
