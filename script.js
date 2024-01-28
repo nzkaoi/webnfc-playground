@@ -7,7 +7,7 @@ readButton.addEventListener("click", async () => {
   try {
     const reader = new NDEFReader();
     await reader.scan();
-    readLog.textContent = "scan started!";
+    readLog.textContent = "scan started!!!!";
 
     reader.addEventListener("error", () => {
       console.log("Error");
