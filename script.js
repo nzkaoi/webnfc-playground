@@ -20,6 +20,7 @@ readButton.addEventListener("click", async () => {
       let text = readLog.textContent;
       console.log(message);
       readLog.textContent = text + '<br>' + `> Serial Number: ${serialNumber}` + '<br>' + message;
+      
       const record = message.records[0];
       const { data, encoding, recordType } = record;
       if (recordType === "text") {
@@ -29,6 +30,8 @@ readButton.addEventListener("click", async () => {
       }
     });
   } catch (error) {
-    readLog.textContent = error;
+    //readLog.textContent = error;
+    let text = readLog.textContent;
+    readLog.textContent = text + '<br>' + error;
   }
 });
