@@ -11,11 +11,15 @@ readButton.addEventListener("click", async () => {
 
     reader.addEventListener("error", () => {
       console.log("Error");
+      let text = readLog.textContent;
+      readLog.textContent = text + '<br>' + "Error";
     });
 
     reader.addEventListener("reading", ({ message, serialNumber }) => {
       console.log(`> Serial Number: ${serialNumber}`);
+      let text = readLog.textContent;
       console.log(message);
+      readLog.textContent = text + '<br>' + `> Serial Number: ${serialNumber}` + '<br>' + message;
       const record = message.records[0];
       const { data, encoding, recordType } = record;
       if (recordType === "text") {
